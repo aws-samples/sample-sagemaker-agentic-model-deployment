@@ -1,0 +1,9 @@
+AIPerf Plot Export Summary
+==================================================
+
+Generated 2 plots:
+
+  - ttft_over_time.png
+  - ttft_timeline.png
+
+Output directory: /opt/ml/output/data/plots

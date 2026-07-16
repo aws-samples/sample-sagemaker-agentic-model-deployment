@@ -1,0 +1,12 @@
+AIPerf benchmark completed successfully at Tue Jun  9 02:09:15 UTC 2026
+Results location: /opt/ml/output/data
+Plots location: /opt/ml/output/data/plots
+
+Generated files:
+  - /opt/ml/output/data/profile_export_aiperf.json
+  - /opt/ml/output/data/inputs.json
+  - /opt/ml/output/data/profile_export.jsonl
+  - /opt/ml/output/data/plots/ttft_timeline.png
+  - /opt/ml/output/data/plots/ttft_over_time.png
+  - /opt/ml/output/data/outputs.json
+  - /opt/ml/output/data/profile_export_aiperf.csv

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# AWS / creds — never commit credentials
+.aws/
+*.pem
+
+# Local benchmark outputs / downloaded artifacts
+results/
+artifacts/
+bench-results/
+*.tar.gz
+
+# OS / editor
+.DS_Store
+*.swp
+
+# Agent tooling (local only)
+.omc/
+
+# Local working record; may contain account-specific details.
+# Anchored to the repo root on purpose: .claude/CLAUDE.md is a committed steering mirror.
+/CLAUDE.md
+# Local run sheet
+REHEARSAL.md
+# Local workflow notes
+demo/storyboard.md

@@ -1,0 +1,7 @@
+
+Created plot configuration: /root/.aiperf/plot_config.yaml
+   Edit this file to customize plots (changes take effect on next run)
+
+
+Saved 2 plots to: /opt/ml/output/data/plots
+Logs: /opt/ml/output/data/plots/aiperf_plot.log

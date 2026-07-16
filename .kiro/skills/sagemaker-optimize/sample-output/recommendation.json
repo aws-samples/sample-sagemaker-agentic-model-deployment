@@ -1,0 +1,129 @@
+{
+  "AIRecommendationJobName": "rec-job-example",
+  "AIRecommendationJobStatus": "Completed",
+  "ModelSource": {
+    "S3": {
+      "S3Uri": "s3://sagemaker-us-west-2-111122223333/models/gpt-oss-20b/"
+    }
+  },
+  "OutputConfig": {
+    "S3OutputLocation": "s3://sagemaker-us-west-2-111122223333/recommendations/",
+    "ModelPackageGroupIdentifier": "rec-job-example"
+  },
+  "InferenceSpecification": {
+    "Framework": "VLLM"
+  },
+  "AIWorkloadConfigIdentifier": "rec-wl-example",
+  "OptimizeModel": false,
+  "PerformanceTarget": {
+    "Constraints": [
+      {
+        "Metric": "throughput"
+      }
+    ]
+  },
+  "Recommendations": [
+    {
+      "OptimizationDetails": [],
+      "ModelDetails": {
+        "ModelPackageArn": "arn:aws:sagemaker:us-west-2:111122223333:model-package/rec-job-example/1",
+        "InferenceSpecificationName": "high-otps-on-g6-24xlarge",
+        "InstanceDetails": [
+          {
+            "InstanceType": "ml.g6.24xlarge",
+            "InstanceCount": 1,
+            "CopyCountPerInstance": 2
+          }
+        ]
+      },
+      "DeploymentConfiguration": {
+        "S3": [
+          {
+            "ChannelName": "base_model",
+            "Uri": "s3://sagemaker-us-west-2-111122223333/models/gpt-oss-20b/"
+          },
+          {
+            "ChannelName": "model-output",
+            "Uri": "s3://sagemaker-us-west-2-111122223333/recommendations/"
+          }
+        ],
+        "ImageUri": "763104351884.dkr.ecr.us-west-2.amazonaws.com/vllm:0.22.0-gpu-py312-cu130-ubuntu22.04-sagemaker",
+        "InstanceType": "ml.g6.24xlarge",
+        "InstanceCount": 1,
+        "CopyCountPerInstance": 2,
+        "EnvironmentVariables": {
+          "SM_VLLM_MAX_MODEL_LEN": "-1",
+          "SM_VLLM_MAX_NUM_SEQS": "88",
+          "SM_VLLM_MODEL": "/opt/ml/additional-model-data-sources/base_model",
+          "SM_VLLM_TENSOR_PARALLEL_SIZE": "2"
+        }
+      },
+      "ExpectedPerformance": [
+        {
+          "Metric": "RequestThroughput",
+          "Stat": "avg",
+          "Value": "7.5114",
+          "Unit": "Requests/Second"
+        },
+        {
+          "Metric": "OutputTokenThroughput",
+          "Stat": "avg",
+          "Value": "1893.21",
+          "Unit": "Tokens/Second"
+        },
+        {
+          "Metric": "RequestLatency",
+          "Stat": "p50",
+          "Value": "11134.94",
+          "Unit": "Milliseconds"
+        },
+        {
+          "Metric": "RequestLatency",
+          "Stat": "p90",
+          "Value": "12119.56",
+          "Unit": "Milliseconds"
+        },
+        {
+          "Metric": "RequestLatency",
+          "Stat": "p99",
+          "Value": "13762.74",
+          "Unit": "Milliseconds"
+        },
+        {
+          "Metric": "TimeToFirstToken",
+          "Stat": "p50",
+          "Value": "269.55",
+          "Unit": "Milliseconds"
+        },
+        {
+          "Metric": "TimeToFirstToken",
+          "Stat": "p90",
+          "Value": "394.81",
+          "Unit": "Milliseconds"
+        },
+        {
+          "Metric": "InterTokenLatency",
+          "Stat": "p50",
+          "Value": "43.38",
+          "Unit": "Milliseconds"
+        },
+        {
+          "Metric": "InterTokenLatency",
+          "Stat": "p90",
+          "Value": "44.35",
+          "Unit": "Milliseconds"
+        },
+        {
+          "Metric": "ClientSideConcurrency",
+          "Value": "88",
+          "Unit": "Count"
+        }
+      ]
+    }
+  ],
+  "ComputeSpec": {
+    "InstanceTypes": [
+      "ml.g6.24xlarge"
+    ]
+  }
+}
