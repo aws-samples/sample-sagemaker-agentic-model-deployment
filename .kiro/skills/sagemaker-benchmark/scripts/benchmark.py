@@ -68,7 +68,8 @@ DEFAULT_DATASET = pathlib.Path(__file__).resolve().parent.parent / "datasets" / 
 # chosen concurrency. Override these defaults for a heavier or lighter run.
 # ---------------------------------------------------------------------------
 def workload_spec(concurrency: int, request_count: int, out_tokens: int,
-                  extra_inputs: str, dataset_file: str | None) -> dict:
+                  extra_inputs: str, dataset_file: str | None,
+                  tokenizer: str = "") -> dict:
     params = {
         "prompt_input_tokens_mean": 500,            # ~500-token inputs…
         "prompt_input_tokens_stddev": 10,           # …with a little natural variation
@@ -92,6 +93,14 @@ def workload_spec(concurrency: int, request_count: int, out_tokens: int,
     # so the answer actually gets written (which keeps AIPerf's validity rate high).
     if extra_inputs:
         params["extra_inputs"] = extra_inputs
+    # AIPerf needs a tokenizer to count tokens. It is normally auto-detected from the
+    # endpoint's model artifact, but an endpoint deployed from a Model Package (e.g. a
+    # sagemaker-optimize recommendation) reports its model as a local path AIPerf can't
+    # map to a tokenizer — auto-detection then fails with "No tokenizer available".
+    # Pass a HuggingFace model/tokenizer ID here to resolve it explicitly. Model-agnostic:
+    # empty by default, so endpoints with a detectable tokenizer are unaffected.
+    if tokenizer:
+        params["tokenizer"] = tokenizer
     return {"benchmark": {"type": "aiperf"}, "parameters": params}
 
 
@@ -108,6 +117,11 @@ def main() -> int:
     ap.add_argument("--extra-inputs", default="",
                     help='optional model-specific request fields, space-separated '
                          '(e.g. "reasoning_effort:low"); empty by default')
+    ap.add_argument("--tokenizer", default="",
+                    help="HuggingFace model/tokenizer ID for AIPerf token counting "
+                         "(e.g. openai/gpt-oss-20b). Only needed when the endpoint's "
+                         "tokenizer can't be auto-detected, such as an endpoint deployed "
+                         "from a Model Package; empty by default")
     ap.add_argument("--dataset-file", default=str(DEFAULT_DATASET),
                     help="JSONL dataset to benchmark with ({'text','output_length'} per "
                          "line); default: the curated sharegpt slice bundled with the skill")
@@ -131,7 +145,8 @@ def main() -> int:
         raise SystemExit(f"dataset file not found: {dataset_path}")
 
     spec = workload_spec(args.concurrency, args.requests, args.out_tokens,
-                         args.extra_inputs, dataset_path.name if dataset_path else None)
+                         args.extra_inputs, dataset_path.name if dataset_path else None,
+                         args.tokenizer)
     stamp = time.strftime("%y%m%d-%H%M%S")
     config_name = f"wl-{stamp}"     # the reusable workload definition
     job_name = f"bench-{stamp}"     # this specific run
