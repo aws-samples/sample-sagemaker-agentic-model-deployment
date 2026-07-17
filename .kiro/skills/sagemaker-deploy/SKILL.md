@@ -32,10 +32,37 @@ single SageMaker real-time endpoint, choose another official quantization or
 move to the appropriate SageMaker multi-node path, such as HyperPod, instead of
 encoding a one-model exception in `deploy.py`.
 
+## Model runtime lookup
+
+Before deriving serving arguments from scratch, look up a known-good configuration for the
+requested checkpoint in the AWS SageMaker GenAI hosting examples:
+
+<https://github.com/aws-samples/sagemaker-genai-hosting-examples/tree/main/01-models>
+
+Find the requested model or an architecturally similar one and adopt its engine, image
+family, instance and topology, context cap, and required `SM_VLLM_*` / `SM_SGLANG_*` options
+as the starting point. This does not change the model-neutral contract: any configuration
+found is supplied through generic CLI arguments (`--image`, `--instance`, `--env`,
+`--smoke-inputs`, `--capacity-reservation-arn`), never added to the scripts. Use the model
+publisher's model card for anything the examples do not cover.
+
+Always re-validate against current reality before deploying: resolve the newest compatible
+DLC (reuse an example's pinned image only if it still exists in ECR), confirm the
+checkpoint's required GPU microarchitecture and quantization support, check endpoint quota,
+and size context and concurrency to the measured KV-cache budget.
+
+If no matching example exists, or the example is stale (superseded DLC tag, deprecated flag,
+or an older engine version than the checkpoint needs), do not block: fall back to
+first-principles research from the model card and proceed. Treat examples as a starting
+point, not an authority. A dated example never overrides current DLC, quota, or hardware
+facts.
+
 ## Required sequence
 
-1. Identify the exact model repository, license, checkpoint format, engine
-   support, minimum engine version, weight size, and native context length.
+1. Run the **Model runtime lookup** above, then identify the exact model repository,
+   license, checkpoint format, engine support, minimum engine version, weight size,
+   and native context length. A borrowed config is a starting point to validate, not
+   a substitute for these facts.
 2. Choose a checkpoint and instance whose aggregate GPU memory can hold weights,
    non-quantized layers, runtime buffers, and the intended KV cache.
 3. Resolve the repository to an immutable commit and stream it into S3 with
