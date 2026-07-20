@@ -1,0 +1,131 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="From Model to Production: agentic AI model deployment on Amazon SageMaker">
+  <title>From Model to Production — Agentic AI on Amazon SageMaker</title>
+  <defs>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c7d2fe"/>
+    </linearGradient>
+    <linearGradient id="statGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="glassFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="cardFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.065"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.015"/>
+    </linearGradient>
+    <linearGradient id="edgeStroke" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.25" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.42" r="0.85">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.5"/>
+    </radialGradient>
+    <radialGradient id="gridFadeGrad" cx="0.5" cy="0.35" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="gridFade">
+      <rect width="1280" height="640" fill="url(#gridFadeGrad)"/>
+    </mask>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#ffffff" stroke-opacity="0.05" fill="none"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="90"/>
+    </filter>
+    <filter id="cardShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="640" fill="#09090b"/>
+  <g filter="url(#glow)">
+    <circle cx="150" cy="30" r="270" fill="#4f46e5" opacity="0.55"/>
+    <circle cx="840" cy="-60" r="230" fill="#7c3aed" opacity="0.35"/>
+    <circle cx="1190" cy="640" r="270" fill="#0891b2" opacity="0.42"/>
+  </g>
+  <rect width="1280" height="640" fill="url(#grid)" mask="url(#gridFade)"/>
+
+  <!-- eyebrow pill -->
+  <rect x="80" y="146" width="372" height="34" rx="17" fill="url(#glassFill)" stroke="url(#edgeStroke)"/>
+  <circle cx="103" cy="163" r="4" fill="#34d399"/>
+  <text x="118" y="168" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" letter-spacing="2.2" fill="#a5b4fc">AGENT SKILLS × AMAZON SAGEMAKER AI</text>
+
+  <!-- title -->
+  <text x="78" y="252" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" letter-spacing="-2" fill="url(#titleGrad)">From Model</text>
+  <text x="78" y="322" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" letter-spacing="-2" fill="url(#titleGrad)">to Production</text>
+  <text x="80" y="366" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="18" fill="#a1a1aa">Raw open weights to a deployed, benchmarked, optimized endpoint.</text>
+
+  <!-- prompt chip -->
+  <rect x="80" y="400" width="540" height="54" rx="14" fill="url(#glassFill)" stroke="url(#edgeStroke)"/>
+  <text x="104" y="433" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#34d399">❯</text>
+  <text x="126" y="433" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#e4e4e7">Deploy GPT-OSS-20B and show me the speed-up.</text>
+  <rect x="538" y="419" width="9" height="19" rx="1.5" fill="#34d399" opacity="0.85"/>
+
+  <!-- quote -->
+  <rect x="80" y="496" width="3" height="48" rx="1.5" fill="#6366f1"/>
+  <text x="98" y="514" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f4f4f5">Agents are non-deterministic.</text>
+  <text x="98" y="538" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#a5b4fc">Skills make them definitive.</text>
+
+  <!-- glass card -->
+  <g filter="url(#cardShadow)">
+    <rect x="752" y="120" width="448" height="400" rx="22" fill="#18181b" fill-opacity="0.55"/>
+  </g>
+  <rect x="752" y="120" width="448" height="400" rx="22" fill="url(#cardFill)" stroke="url(#edgeStroke)"/>
+
+  <!-- card header -->
+  <circle cx="800" cy="158" r="5.5" fill="#ff5f57" opacity="0.9"/>
+  <circle cx="820" cy="158" r="5.5" fill="#febc2e" opacity="0.9"/>
+  <circle cx="840" cy="158" r="5.5" fill="#28c840" opacity="0.9"/>
+  <text x="1164" y="163" text-anchor="end" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#71717a">SKILL.md</text>
+  <line x1="752" y1="182" x2="1200" y2="182" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <!-- steps -->
+  <text x="788" y="224" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#52525b">01</text>
+  <text x="820" y="224" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#e4e4e7">sagemaker-deploy</text>
+  <text x="1164" y="224" text-anchor="end" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#34d399">✓ InService</text>
+
+  <text x="788" y="266" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#52525b">02</text>
+  <text x="820" y="266" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#e4e4e7">sagemaker-benchmark</text>
+  <text x="1164" y="266" text-anchor="end" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#a1a1aa">218 tok/s</text>
+
+  <text x="788" y="308" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#52525b">03</text>
+  <text x="820" y="308" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#e4e4e7">sagemaker-optimize</text>
+  <text x="1164" y="308" text-anchor="end" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#22d3ee">1,893 tok/s</text>
+
+  <!-- before/after bars -->
+  <rect x="788" y="332" width="44" height="8" rx="4" fill="#3f3f46"/>
+  <rect x="788" y="348" width="376" height="8" rx="4" fill="url(#barGrad)"/>
+
+  <line x1="752" y1="380" x2="1200" y2="380" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <!-- stat -->
+  <text x="786" y="462" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="58" font-weight="700" letter-spacing="-1.5" fill="url(#statGrad)">8.7×</text>
+  <text x="930" y="438" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#a1a1aa">projected throughput speed-up</text>
+  <text x="930" y="460" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#71717a">218 → 1,893 tok/s</text>
+  <text x="788" y="496" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#52525b">like-for-like · managed benchmark · NVIDIA AIPerf</text>
+
+  <!-- footers -->
+  <text x="1200" y="556" text-anchor="end" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#52525b">vLLM · Inference Components · AIPerf · Recommendations</text>
+  <text x="80" y="606" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#52525b">aws-samples / sample-sagemaker-agentic-model-deployment</text>
+  <text x="1200" y="606" text-anchor="end" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#52525b">MIT-0</text>
+
+  <!-- texture + vignette -->
+  <rect width="1280" height="640" filter="url(#noise)" opacity="0.5"/>
+  <rect width="1280" height="640" fill="url(#vignette)"/>
+</svg>

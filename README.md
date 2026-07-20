@@ -1,5 +1,7 @@
 # From Model to Production: Agentic AI on Amazon SageMaker
 
+![From model to production: agentic AI model deployment on Amazon SageMaker](assets/thumbnail.svg)
+
 > Take a raw open-weight model to a deployed, **benchmarked, and optimized**
 > Amazon SageMaker AI endpoint through a coding agent, **without writing the
 > plumbing by hand**.
@@ -37,6 +39,8 @@ doing for you" path. The point is the contrast.
 
 Open this repository in a SageMaker Studio space or another environment with
 AWS credentials. The workflow becomes a handful of natural-language prompts:
+
+![A coding agent picking up the deploy, benchmark, and optimize skills from a one-line prompt](assets/kiro-prompt.png)
 
 > **"Deploy GPT-OSS-20B to a SageMaker endpoint for benchmarking."**
 
